@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Funções JavaScript</title>
+  <script>
+    function MAIOR_MENOR() {
+      var a = parseInt(document.getElementById("valor1").value);
+      var b = parseInt(document.getElementById("valor2").value);
+      var c = parseInt(document.getElementById("valor3").value);
+      var d = parseInt(document.getElementById("valor4").value);
+      var e = parseInt(document.getElementById("valor5").value);
+      
+      var valores = [a, b, c, d, e];
+      var maior = Math.max(...valores);
+      var menor = Math.min(...valores);
+      
+      document.getElementById("resultado1").innerHTML = "Maior valor: " + maior + "<br>Menor valor: " + menor;
+    }
+    
+    function VOGAL() {
+      var c = document.getElementById("caractere").value.toLowerCase();
+      
+      var vogais = ['a', 'e', 'i', 'o', 'u'];
+      var resultado = vogais.includes(c) ? "É uma vogal" : "Não é uma vogal";
+      
+      document.getElementById("resultado2").innerHTML = resultado;
+    }
+    
+    function LIMITES() {
+      var li = parseInt(document.getElementById("limiteInf").value);
+      var ls = parseInt(document.getElementById("limiteSup").value);
+      
+      var somatorio = 0;
+      var pares = "";
+      for (var i = li + 1; i < ls; i++) {
+        if (i % 2 === 0) {
+          pares += i + " ";
+          somatorio += i;
+        }
+      }
+      
+      document.getElementById("resultado3").innerHTML = "Números pares: " + pares + "<br>Somatório dos números pares: " + somatorio;
+    }
+    
+    function ORDEM() {
+      var a = parseInt(document.getElementById("valorA").value);
+      var b = parseInt(document.getElementById("valorB").value);
+      var c = parseInt(document.getElementById("valorC").value);
+      
+      var valores = [a, b, c];
+      valores.sort(function(a, b) {
+        return a - b;
+      });
+      
+      document.getElementById("resultado4").innerHTML = "Valores ordenados: " + valores.join(", ");
+    }
+    
+    function POSITIVO_NEGATIVO() {
+      var x = parseInt(document.getElementById("numero").value);
+      
+      var resultado = x > 0 ? "Positivo" : "Negativo";
+      
+      document.getElementById("resultado5").innerHTML = resultado;
+    }
+    
+    function PAR_IMPAR() {
+      var x = parseInt(document.getElementById("numero").value);
+      
+      var resultado = x % 2 === 0 ? "Par" : "Ímpar";
+      
+      document.getElementById("resultado6").innerHTML = resultado;
+    }
+  </script>
+</head>
+<body>
+  <h1>Funções JavaScript</h1>
+  
+  <h2>MAIOR_MENOR</h2>
+  <input type="number" id="valor1">
+  <input type="number" id="valor2">
+  <input type="number" id="valor3">
+  <input type="number" id="valor4">
+  <input type="number" id="valor5">
+  <button onclick="MAIOR_MENOR()">Calcular</button>
+  <p id="resultado1"></p>
+  
+  <h2>VOGAL</h2>
+  <input type="text" id="caractere">
+  <button onclick="VOGAL()">Verificar</button>
+  <p id="resultado2"></p>
+  
+  <h2>LIMITES</h2>
+  <input type="number" id="limiteInf">
+  <input type="number" id="limiteSup">
+  <button onclick="LIMITES()">Calcular</button>
+  <p id="resultado3"></p>
+  
+  <h2>ORDEM</h2>
+  <input type="number" id="valorA">
+  <input type="number" id="valorB">
+  <input type="number" id="valorC">
+  <button onclick="ORDEM()">Ordenar</button>
+  <p id="resultado4"></p>
+  
+  <h2>POSITIVO_NEGATIVO</h2>
+  <input type="number" id="numero">
+  <button onclick="POSITIVO_NEGATIVO()">Verificar</button>
+  <p id="resultado5"></p>
+  
+  <h2>PAR_IMPAR</h2>
+  <input type="number" id="numero">
+  <button onclick="PAR_IMPAR()">Verificar</button>
+  <p id="resultado6"></p>
+</body>
+</html>
